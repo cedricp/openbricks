@@ -1,0 +1,31 @@
+#!/bin/sh
+
+. config/options
+
+get_meta $1
+
+cd $PKG_BUILD_DIR
+
+# Tweak config file for raspberry
+sed -i "s#/opt/vc/lib#/usr/lib#" src/video/SDL_egl.c
+sed -i "s#\*-raspberry-linux\*)#\*-raspberry-linux\*|\*-openbricks-linux\*)#" configure.in
+
+mkdir -p objdir-target
+./autogen.sh
+cd objdir-target
+
+# SDL_rpimouse.c line 254 and 258 no assert
+do_configure \
+            --disable-pulseaudio \
+            --disable-esd \
+            --disable-video-mir \
+            --disable-video-wayland \
+            --disable-video-x11 \
+            --disable-video-opengl \
+            --enable-static --enable-shared \
+            CFLAGS="-I$LIB_PREFIX/include/interface/vcos/pthreads -I$LIB_PREFIX/include/interface/vmcs_host/linux" \
+            CXXFLAGS="-I$LIB_PREFIX/include/interface/vcos/pthreads -I$LIB_PREFIX/include/interface/vmcs_host/linux"
+            
+make
+sed -i "s%^prefix=.*%prefix=$LIB_PREFIX%" sdl2-config
+make_install

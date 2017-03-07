@@ -6,7 +6,7 @@ get_meta $1
 cd $PKG_BUILD_DIR
 
 do_install usr/lib/*.so*
-do_install usr/lib/bluez
+#do_install usr/lib/bluez
 do_install usr/lib/systemd
 do_install usr/lib/bluetooth
 
@@ -24,7 +24,7 @@ cp $ROOT/$PACKAGES/$PKG_SECTION/$1/config/bluetooth.rules $INSTALL/etc/udev/rule
 mkdir -p $INSTALL/usr/bin
 cp $ROOT/$PACKAGES/$PKG_SECTION/$1/config/bt-setup $INSTALL/usr/bin
 
-do_install lib/udev
+#do_install lib/udev
 do_install etc
 do_install usr/share/dbus-1
 

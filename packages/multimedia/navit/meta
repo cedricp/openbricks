@@ -1,0 +1,14 @@
+PKG_NAME=navit
+PKG_VERSION=0.5
+PKG_REV="1"
+PKG_URL_PROTO=git
+PKG_URL_BRANCH=master
+PKG_URL="https://github.com/navit-gps/navit"
+PKG_RUN_DEPENDS="$TARGET_LIBC"
+PKG_BUILD_DEPENDS="toolchain cmake SDL2 SDL2-image"
+PKG_DEPENDS="SDL2 SDL2-image"
+PKG_USE="SDL2 SDL2-image"
+PKG_PRIORITY=optional
+PKG_SECTION=multimedia
+PKG_SHORTDESC="Navigation progam"
+PKG_LONGDESC="Navit is a open source (GPL) car navigation system with routing engine."

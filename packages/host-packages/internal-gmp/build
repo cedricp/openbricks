@@ -28,7 +28,7 @@ M4=$dir_internal_m4/m4
 
 ../configure --enable-mpbsd \
 	     --enable-cxx \
-	     --prefix=/usr
+	     --prefix=/usr --disable-shared
 
 make
 #make check

@@ -1,6 +1,6 @@
 PKG_NAME=firmware-arm-raspberrypi
 PKG_URL_BRANCH=master
-PKG_URL_REV="1~046effa"
+#PKG_URL_REV="1~046effa"
 PKG_VERSION="2016.03+${PKG_URL_REV}"
 PKG_REV="4"
 PKG_URL_PROTO=git

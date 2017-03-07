@@ -1,0 +1,15 @@
+PKG_NAME=SDL2
+PKG_VERSION=2.0.5_ced
+PKG_URL_PROTO=git
+PKG_URL_BRANCH=master
+PKG_URL="https://github.com/cedricp/SDL2-PI.git"
+PKG_REV="3"
+PKG_DEPENDS="alsa-lib"
+PKG_RUN_DEPENDS="$TARGET_LIBC"
+PKG_BUILD_DEPENDS="toolchain nasm"
+PKG_USE="touchscreen devtools opengl"
+PKG_DEPENDS_touchscreen="tslib"
+PKG_PRIORITY=optional
+PKG_SECTION=libs
+PKG_SHORTDESC="Simple DirectMedia Layer 2"
+PKG_LONGDESC="SDL2 is a library that allows programs portable low level access to a video framebuffer, audio output, mouse, and keyboard."

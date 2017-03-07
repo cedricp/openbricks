@@ -67,7 +67,6 @@ case "$TARGET_PLATFORM" in
     ;;
 esac
 
-
 case "$TARGET_MACHINE" in
   pandaboard)
     EXTRA_CONFIG="$EXTRA_CONFIG --enable-player=gstplayer"  
@@ -127,6 +126,9 @@ if [ ! -f configure ] ; then
   # build TexturePacker (and libsquish) for host
   setup_toolchain host
   cd tools/depends/native/TexturePacker
+  make
+  cd -
+  cd tools/depends/native/JsonSchemaBuilder
   make
   cd -
   

@@ -5,6 +5,7 @@
 get_meta $1
 
 cd $PKG_BUILD_DIR
+LIBS=-liconv \
 do_configure
 make
 make_install

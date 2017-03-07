@@ -1,6 +1,6 @@
 PKG_NAME=libplist
 PKG_VERSION=1.8
-PKG_URL="http://cgit.sukimashita.com/libplist.git/snapshot/${PKG_NAME}-${PKG_VERSION}.tar.bz2"
+PKG_URL="http://cgit.sukimashita.com/libplist.git/snapshot/${PKG_NAME}-${PKG_VERSION}.tar.gz"
 PKG_REV="2"
 PKG_DEPENDS="$TARGET_LIBC GLib gettext"
 PKG_BUILD_DEPENDS="toolchain libxml2 cmake zlib"
@@ -8,4 +8,4 @@ PKG_PRIORITY=optional
 PKG_SECTION=libs
 PKG_SHORTDESC="A library to handle Apple Property List format whereas it's binary or XML."
 PKG_LONGDESC="A library to handle Apple Property List format whereas it's binary or XML."
-PKG_MD5="2a9e0258847d50f9760dc3ece25f4dc6"
+#PKG_MD5="2a9e0258847d50f9760dc3ece25f4dc6"

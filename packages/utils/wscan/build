@@ -3,7 +3,7 @@
 . config/options
 
 cd $BUILD/$1*
-
+LIBS=-liconv \
 do_configure
 make
 make_install

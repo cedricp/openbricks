@@ -30,7 +30,9 @@ build_package () {
 
   CC=$LOCAL_CC \
   CXX=$LOCAL_CXX \
-  ../configure --with-gmp=$dir_internal_gmp   \
+  #LD_LIBRARY_PATH=/sources/RPI/GEEX/openbricks/build/build.host/internal-gmp-6.0.0a/internal-objdir/.libs
+  ../configure --with-gmp-include=$dir_internal_gmp/include   \
+               --with-gmp-lib=$dir_internal_gmp/lib   \
                --with-mpfr=$dir_internal_mpfr \
                --with-mpc=$dir_internal_mpc   \
                --disable-multilib             \
