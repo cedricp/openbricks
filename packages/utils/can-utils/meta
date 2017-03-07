@@ -1,0 +1,14 @@
+PKG_NAME=can-utils
+PKG_VERSION=1.0
+PKG_URL_PROTO=git
+PKG_URL_BRANCH=master
+PKG_URL="https://github.com/linux-can/can-utils.git"
+PKG_REV="1"
+PKG_DEPENDS=""
+PKG_RUN_DEPENDS="$TARGET_LIBC"
+PKG_BUILD_DEPENDS="toolchain"
+PKG_USE="devtools"
+PKG_PRIORITY=optional
+PKG_SECTION=utils
+PKG_SHORTDESC="SocketCAN userspace utilities and tools"
+PKG_LONGDESC="CAN is a message-based network protocol designed for vehicles originally initially created by Robert Bosch GmbH. SocketCAN is a set of open source CAN drivers and a networking stack contributed by Volkswagen Research to the Linux kernel."
