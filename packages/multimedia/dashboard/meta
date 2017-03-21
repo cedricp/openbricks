@@ -1,0 +1,13 @@
+PKG_NAME=dashboard
+PKG_VERSION=0.1
+PKG_REV="1"
+PKG_URL_PROTO=git
+PKG_URL_BRANCH=master
+PKG_URL="https://github.com/cedricp/rpi_gui.git"
+PKG_RUN_DEPENDS="$TARGET_LIBC"
+PKG_BUILD_DEPENDS="toolchain"
+PKG_DEPENDS="SDL2 SDL2-image"
+PKG_PRIORITY=optional
+PKG_SECTION=multimedia
+PKG_SHORTDESC="Dashboard screen for RaspPi"
+PKG_LONGDESC="Dashboard screen for RaspPi"
