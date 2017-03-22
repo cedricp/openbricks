@@ -1,6 +1,6 @@
 PKG_NAME=navit-offscreen
 PKG_VERSION=0.5
-PKG_REV="1"
+PKG_REV="2"
 #PKG_URL_PROTO=git
 #PKG_URL_BRANCH=trunk
 PKG_URL="https://github.com/cedricp/navit/archive/trunk.zip"
