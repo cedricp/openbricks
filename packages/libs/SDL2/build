@@ -6,15 +6,20 @@ get_meta $1
 
 cd $PKG_BUILD_DIR
 
-# Tweak config file for raspberry
-sed -i "s#/opt/vc/lib#/usr/lib#" src/video/SDL_egl.c
-sed -i "s#\*-raspberry-linux\*)#\*-raspberry-linux\*|\*-openbricks-linux\*)#" configure.in
+pkg_uses $1 raspberrypi $OPT && GLES=enable || GLES=disable
+
+if [ "$GLES" = "enable" ]; then
+    # Tweak config file for raspberry
+    sed -i "s#/opt/vc/lib#/usr/lib#" src/video/SDL_egl.c
+    sed -i "s#\*-raspberry-linux\*)#\*-raspberry-linux\*|\*-openbricks-linux\*)#" configure.in
+    EXTRA_CFLAGS="-I$LIB_PREFIX/include/interface/vcos/pthreads -I$LIB_PREFIX/include/interface/vmcs_host/linux"
+    EXTRA_CXXFLAGS="-I$LIB_PREFIX/include/interface/vcos/pthreads -I$LIB_PREFIX/include/interface/vmcs_host/linux"
+fi
 
 mkdir -p objdir-target
 ./autogen.sh
 cd objdir-target
 
-# SDL_rpimouse.c line 254 and 258 no assert
 do_configure \
             --disable-pulseaudio \
             --disable-esd \
@@ -23,9 +28,9 @@ do_configure \
             --disable-video-x11 \
             --disable-video-opengl \
             --enable-static --enable-shared \
-            CFLAGS="-I$LIB_PREFIX/include/interface/vcos/pthreads -I$LIB_PREFIX/include/interface/vmcs_host/linux" \
-            CXXFLAGS="-I$LIB_PREFIX/include/interface/vcos/pthreads -I$LIB_PREFIX/include/interface/vmcs_host/linux"
+            CFLAGS="$EXTRA_CFLAGS" CXXFLAGS="$EXTRA_CXXFLAGS"
             
 make
 sed -i "s%^prefix=.*%prefix=$LIB_PREFIX%" sdl2-config
 make_install
+

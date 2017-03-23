@@ -1,14 +1,17 @@
 PKG_NAME=SDL2
-PKG_VERSION=2.0.5_ced
+PKG_VERSION=2.0.5
 PKG_URL_PROTO=git
 PKG_URL_BRANCH=master
 PKG_URL="https://github.com/cedricp/SDL2-PI.git"
 PKG_REV="3"
 PKG_DEPENDS="alsa-lib"
 PKG_RUN_DEPENDS="$TARGET_LIBC"
-PKG_BUILD_DEPENDS="toolchain nasm"
-PKG_USE="touchscreen devtools opengl"
+PKG_BUILD_DEPENDS="toolchain"
+PKG_USE="touchscreen raspberrypi"
+PKG_USE_DESC_raspberrypi="Enable RaspberryPi support"
 PKG_DEPENDS_touchscreen="tslib"
+# OpenGLES -> selects -> packages/misc/OpenGLES -> raspberry-userland (BCM platform)
+PKG_BUILD_DEPENDS_raspberrypi="OpenGLES"
 PKG_PRIORITY=optional
 PKG_SECTION=libs
 PKG_SHORTDESC="Simple DirectMedia Layer 2"
