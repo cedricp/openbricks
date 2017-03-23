@@ -2,10 +2,10 @@ PKG_NAME=SDL2-image
 PKG_VERSION=2.0.1
 PKG_URL="https://www.libsdl.org/projects/SDL_image/release/SDL2_image-${PKG_VERSION}.tar.gz"
 PKG_REV="3"
-PKG_RUN_DEPENDS="$TARGET_LIBC SDL zlib libjpeg-turbo libexif libgif libpng"
-PKG_BUILD_DEPENDS="toolchain SDL zlib libjpeg-turbo libexif libgif libpng"
+PKG_RUN_DEPENDS="$TARGET_LIBC SDL2 zlib libjpeg-turbo libexif libgif libpng"
+PKG_BUILD_DEPENDS="toolchain SDL2 zlib libjpeg-turbo libexif libgif libpng"
 PKG_PRIORITY=optional
 PKG_SECTION=libs
-PKG_SHORTDESC="image loading library for Simple DirectMedia Layer 1.2"
+PKG_SHORTDESC="image loading library for Simple DirectMedia Layer 2.0"
 PKG_LONGDESC="SDL is a simple library to load images of various formats as SDL surfaces. This library currently supports BMP, PPM, PCX, GIF, JPEG, PNG, TIFF, and XPM formats."
 
