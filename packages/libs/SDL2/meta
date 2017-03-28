@@ -7,12 +7,13 @@ PKG_REV="3"
 PKG_DEPENDS="alsa-lib"
 PKG_RUN_DEPENDS="$TARGET_LIBC"
 PKG_BUILD_DEPENDS="toolchain"
-PKG_USE="touchscreen raspberrypi"
+PKG_USE="touchscreen raspberrypi devtools"
 PKG_USE_DESC_raspberrypi="Enable RaspberryPi support"
 PKG_DEPENDS_touchscreen="tslib"
-# OpenGLES -> selects -> packages/misc/OpenGLES -> raspberry-userland (BCM platform)
-PKG_BUILD_DEPENDS_raspberrypi="OpenGLES"
+PKG_DEPENDS_raspberrypi="raspberrypi-userland"
 PKG_PRIORITY=optional
 PKG_SECTION=libs
 PKG_SHORTDESC="Simple DirectMedia Layer 2"
 PKG_LONGDESC="SDL2 is a library that allows programs portable low level access to a video framebuffer, audio output, mouse, and keyboard."
+
+# OpenGLES -> selects -> packages/misc/OpenGLES -> raspberry-userland (BCM platform)

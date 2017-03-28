@@ -580,6 +580,17 @@ do_install () {
   done
 }
 
+# Usage: do_install <target>
+do_local_install () {
+  for file in $*; do
+    [ -z "$file" ] && exit 1
+
+    dir=$(dirname $file)
+    mkdir -p $INSTALL/$dir
+    cp -PR $file $INSTALL/$dir
+  done
+}
+
 # Usage: do_installdev <target> [toolchain|sysroot|libprefix]
 do_installdev () {
   local file="$1"
