@@ -1,0 +1,16 @@
+#!/bin/sh
+
+. config/options
+
+get_meta $1
+
+$SCRIPTS/build linux
+
+cd $BUILD/$1*
+make KERNELDIR=$(kernel_path)
+
+MODULE_NET_DIR=.install/lib/modules/$(kernel_version)/kernel/net/can
+mkdir -p ${MODULE_NET_DIR}
+
+cp net/can/can-isotp.ko ${MODULE_NET_DIR}
+

@@ -1,0 +1,14 @@
+PKG_NAME=can-isotp
+PKG_VERSION=1.0
+PKG_URL_PROTO=git
+PKG_URL_BRANCH=master
+PKG_URL="https://github.com/hartkopp/can-isotp.git"
+PKG_REV="1"
+PKG_DEPENDS=""
+PKG_RUN_DEPENDS="$TARGET_LIBC"
+PKG_BUILD_DEPENDS="toolchain"
+PKG_PRIORITY=optional
+PKG_SECTION=utils
+PKG_ARCH=arm
+PKG_SHORTDESC="CAN Transport Protocols offer support for segmented Point-to-Point communication between CAN nodes via two defined CAN Identifiers."
+PKG_LONGDESC="CAN Transport Protocols offer support for segmented Point-to-Point communication between CAN nodes via two defined CAN Identifiers. This protocol driver implements data transfers according ISO 15765-2."
