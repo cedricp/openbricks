@@ -13,7 +13,7 @@ echo "$DISTRONAME $TARGET_ARCH $DISTRO_VERSION $DISTRO_COPYRIGHT" \
   > .install/boot/issue.txt
 
 
-CMDLINE="dwc_otg.lpm_enable=0 console=serial0,115200 root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait vt.global_cursor_default=0"
+CMDLINE="dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootfstype=ext4 rw rootwait vt.global_cursor_default=0"
 if [ "$RPI_USE_CMA" = yes ]; then
   CMDLINE="$CMDLINE coherent_pool=6M smsc95xx.turbo_mode=N"
 else
@@ -47,44 +47,19 @@ cat > .install/boot/config.txt <<EOF
 sdtv_mode=$RPI_SDTV_MODE
 sdtv_aspect=$RPI_SDTV_ASPECT
 sdtv_disable_colourburst=$no_colorburst
-
+ 
 # hdmi_ignore_cec_init=1
-
+hdmi_force_hotplug=1
+hdmi_group=2
+hdmi_mode=1
+hdmi_mode=87
+hdmi_cvt=800 480 60 6 0 0 0
+hdmi_drive=1
 dtparam=spi=on
-# dtparam=i2s=on
-# dtparam=i2c=on
-# dtparam=audio=on
-
-# force_turbo=1
-# enable_uart=1
-# dtoverlay=pi3-miniuart-bt
-
-# dtoverlay=pi3-disable-bt
-
-dtoverlay=lirc-rpi
-# dtoverlay=gpio-ir
-
-# dtoverlay=i2c-rtc,ds1307
-# dtoverlay=i2c-rtc,ds1339
-# dtoverlay=i2c-rtc,ds3231
-# dtoverlay=i2c-rtc,mcp7941x
-# dtoverlay=i2c-rtc,pcf2127
-# dtoverlay=i2c-rtc,pcf8523
-# dtoverlay=i2c-rtc,pcf8563
-
-# dtoverlay=hifiberry-amp
-# dtoverlay=hifiberry-dac
-# dtoverlay=hifiberry-dacplus
-# dtoverlay=hifiberry-digi
-# dtoverlay=iqaudio-dac
-# dtoverlay=iqaudio-dacplus
-# dtoverlay=rpi-dac
-# dtoverlay=rpi-proto
-# dtoverlay=raspidac3
-
-# dtoverlay=pps-gpio
-# dtoverlay=w1-gpio
-# dtoverlay=w1-gpio-pullup
+dtoverlay=mcp2515-can0-overlay,oscillator=16000000,interrupt=25 
+dtoverlay=spi-bcm2835-overlay
+dtoverlay=ads7846,penirq=24,speed=10000,penirq_pull=2,xohms=150
+dtparam=i2c=on
 
 ${mpg2_license}
 ${vwc1_license}
