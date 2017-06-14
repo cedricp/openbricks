@@ -56,8 +56,8 @@ hdmi_mode=87
 hdmi_cvt=800 480 60 6 0 0 0
 hdmi_drive=1
 dtparam=spi=on
-dtoverlay=mcp2515-can0-overlay,oscillator=16000000,interrupt=25 
 dtoverlay=spi-bcm2835-overlay
+dtoverlay=mcp2515-can0-overlay,oscillator=16000000,interrupt=25 
 dtoverlay=ads7846,penirq=24,speed=10000,penirq_pull=2,xohms=150
 dtparam=i2c=on
 
@@ -68,4 +68,11 @@ ${use_mem_split}gpu_mem_256=112
 ${use_mem_split}gpu_mem_512=320
 ${use_mem_split}gpu_mem_1024=384
 
+EOF
+
+mkdir -p .install/etc/udev/rules.d
+
+# Create symlink touchscreen device
+cat <<'EOF' >> .install/etc/udev/rules.d/29-ads7846.rules 
+SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{name}=="ADS7846 Touchscreen", SYMLINK+="input/touchscreen"
 EOF
