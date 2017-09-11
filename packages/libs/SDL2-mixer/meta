@@ -1,0 +1,11 @@
+PKG_NAME=SDL2-mixer
+PKG_VERSION=2.0.1
+PKG_URL="https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-${PKG_VERSION}.tar.gz"
+PKG_REV="1"
+PKG_DEPENDS="SDL2"
+PKG_RUN_DEPENDS="$TARGET_LIBC"
+PKG_BUILD_DEPENDS="toolchain SDL2 libvorbis flac fluidsynth"
+PKG_PRIORITY=optional
+PKG_SECTION=libs
+PKG_SHORTDESC="Simple DirectMedia Layer 2 MIXER library"
+PKG_LONGDESC="SDL2 is a library that allows programs portable low level access to a video framebuffer, audio output, mouse, and keyboard."

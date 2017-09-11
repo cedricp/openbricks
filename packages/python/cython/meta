@@ -1,0 +1,13 @@
+PKG_NAME="cython"
+PKG_VERSION="0.25.2"
+PKG_SECTION="python"
+PKG_REV="1"
+PKG_URL="https://github.com/cython/cython/archive/${PKG_VERSION}.tar.gz"
+PKG_BUILD_DEPENDS="toolchain "
+PKG_DEPENDS="Python"
+PKG_SHORTDESC="Cython (http://cython.org) is a language that makes writing C extensions for \
+the Python language"
+PKG_LONGDESC="Cython (http://cython.org) is a language that makes writing C extensions for \
+the Python language as easy as Python itself.  Cython is based on the \
+well-known Pyrex, but supports more cutting edge functionality and \
+Kivy is an open source, cross-platform Python framework"

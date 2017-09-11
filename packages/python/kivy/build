@@ -1,0 +1,20 @@
+#!/bin/sh
+
+. config/options
+
+get_meta $1
+cd $PKG_BUILD_DIR
+
+pkg_uses $1 raspberrypi $OPT && GLES=enable || GLES=disable
+
+echo "Starting KIVY build"
+if [ "$GLES" = "enable" ]; then
+    echo "GLES flag found, enabling RPI"
+    sed -i "s#/opt/vc/include/bcm_host.h#$LIB_PREFIX/include/bcm_host.h#" setup.py
+    sed -i "s#/opt/vc/include/bcm_host.h#$LIB_PREFIX/include/bcm_host.h#" kivy/lib/vidcore_lite/bcm.pxd
+    sed -i "s#/opt/vc/include/EGL/egl.h#$LIB_PREFIX/include/EGL/egl.h#" kivy/lib/vidcore_lite/egl.pyx
+fi
+
+do_python_make_cross -O1 --prefix /usr --root .install
+
+do_python_strip

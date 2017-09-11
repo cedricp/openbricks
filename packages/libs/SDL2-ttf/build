@@ -1,0 +1,20 @@
+#!/bin/sh
+
+. config/options
+
+get_meta $1
+
+cd $PKG_BUILD_DIR
+
+sed -i "s#have_opengl=yes#have_opengl=no#" configure.in
+
+mkdir -p objdir-target
+./autogen.sh
+cd objdir-target
+
+do_configure --without-x --disable-opengl
+            
+make
+
+make_install
+

@@ -1,0 +1,4 @@
+Force rebuild package :
+touch packages/[pkg]/build or scripts/build ** --force
+
+build/build.host/kconfig-frontends-3.12.0.0/.config=current build file (copy to config/defconfigs/base-rpi-*)
